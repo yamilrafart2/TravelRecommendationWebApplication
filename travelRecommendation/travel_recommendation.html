@@ -5,17 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TravelBloom</title>
 
-        <style>
-            body {
-                background-image: url('background.jpg'); /* Establece la imagen de fondo */
-                background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-                background-position: center; /* centra la imagen */
-                background-repeat: no-repeat; /* Evita que la imagen se repita */
-                margin: 0; /*  */
-                padding: 0; /*  */
-                min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
 
         <!-- Enlace a Font Awesome para los íconos -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,8 +16,7 @@
         <nav>
             <!-- Logo y nombre del sitio -->
             <div>
-                <!-- <img class="logo" src="logo.jpg" alt="TravelBloom Logo"> -->
-                <i class="fas fa-plane-departure"></i> <!-- Ícono de avión -->
+                <i class="fas fa-plane-departure"></i>
                 <span>TravelBloom</span>
             </div>
             
@@ -35,15 +24,14 @@
                 <li><a href="./travel_recommendation.html" id="home">Home</a></li>
                 <li><a href="./about_us.html" id="aboutUs">About Us</a></li>
                 <li><a href="./contact_us.html" id="contactUs">Contact Us</a></li>
-
-                <li><input type="text" id="searchBar" placeholder="Enter a destination or keyword">  </li>
+                <li><input type="text" id="searchBar" placeholder="Enter a destination or keyword"></li>
                 <li><button id='btnSearch'>Search</button></li>
                 <li><button id='btnReset'>Clear</button></li>
             </ul>
         </nav>
 
         <!-- Contenido principal -->
-        <main>
+        <main class="home-main">
             <section>
                 <h1>EXPLORE DREAM DESTINATION</h1>
                 <p>
@@ -53,25 +41,25 @@
                 </p>
                 <button id="btnBookNow">BOOK NOW</button>
             </section>
-
-            <section>
-                <!-- Íconos de redes sociales -->
-                <div class="social-icons">
-                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-            </section>
         </main>
+        
+        <!-- Redes sociales a la derecha -->
+        <div class="social-section">
+            <div class="social-icons">
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
         
     </body>
 </html>
