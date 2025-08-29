@@ -11,24 +11,27 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     </head>
-    <body>
-         <!-- Barra de navegación -->
+    <body class="contact-page">
+        <!-- Barra de navegación -->
         <nav>
-            <!-- Logo y nombre del sitio -->
-            <div>
-                <i class="fas fa-plane-departure"></i>
-                <span>TravelBloom</span>
-            </div>
-            
-            <ul>
-                <li><a href="./travel_recommendation.html" id="home">Home</a></li>
-                <li><a href="./about_us.html" id="aboutUs">About Us</a></li>
-                <li><a href="./contact_us.html" id="contactUs">Contact Us</a></li>
-                <!-- <li><input type="text" id="searchBar" placeholder="Enter a destination or keyword"></li> -->
-                <!-- <li><button id='btnSearch'>Search</button></li> -->
-                <!-- <li><button id='btnReset'>Clear</button></li> -->
-            </ul>
-        </nav>
+        <div class="nav-logo">
+            <i class="fas fa-plane-departure"></i>
+            <span>TravelBloom</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="./travel_recommendation.html" id="home">Home</a></li>
+            <li><a href="./about_us.html" id="aboutUs">About Us</a></li>
+            <li><a href="./contact_us.html" id="contactUs">Contact Us</a></li>
+        </ul>
+        
+        <div class="nav-search">
+            <!-- Esta sección estará oculta por CSS -->
+            <input type="text" id="searchBar" placeholder="Enter a destination or keyword">
+            <button id='btnSearch'>Search</button>
+            <button id='btnReset'>Clear</button>
+        </div>
+    </nav>
 
         <!-- Contenido principal -->
         <main class="contact-main">

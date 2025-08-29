@@ -6,6 +6,16 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }   
 
+/* Estilos para los botones */
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
 /* Estilos de navegación */
 nav {
     background-color: rgba(255, 255, 255, 0.9);
@@ -20,35 +30,37 @@ nav {
     z-index: 100;
 }
 
-/* Estilos para el logo */
-nav > div {
+/* Logo a la izquierda */
+.nav-logo {
     display: flex;
     align-items: center;
     gap: 10px;
     font-weight: bold;
     font-size: 1.5rem;
     color: #2c3e50;
+    flex: 1;
 }
 
-nav i {
+.nav-logo i {
     font-size: 1.8rem;
     color: #3498db;
 }
 
-/* Estilos para la lista de navegación */
-nav ul {
+/* Enlaces en el centro */
+.nav-links {
     list-style-type: none;
     display: flex;
     align-items: center;
     gap: 20px;
+    flex: 1;
+    justify-content: center;
 }
 
-nav ul li {
+.nav-links li {
     display: inline;
 }
 
-/* Estilos para los enlaces */
-nav a {
+.nav-links a {
     text-decoration: none;
     color: #333;
     font-weight: 600;
@@ -57,9 +69,18 @@ nav a {
     transition: all 0.3s ease;
 }
 
-nav a:hover {
+.nav-links a:hover {
     background-color: #3498db;
     color: white;
+}
+
+/* Barra de búsqueda a la derecha */
+.nav-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 /* Estilos para la barra de búsqueda */
@@ -72,8 +93,8 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* Estilos para los botones */
-button {
+/* Estilos para los botones de búsqueda */
+#btnSearch, #btnReset {
     padding: 8px 16px;
     border: none;
     border-radius: 20px;
@@ -98,6 +119,19 @@ button {
 
 #btnReset:hover {
     background-color: #c0392b;
+}
+
+/* Ocultar barra de búsqueda en páginas About Us y Contact Us */
+.about-page .nav-search,
+.contact-page .nav-search {
+    display: none;
+}
+
+/* Centrar enlaces cuando no hay barra de búsqueda */
+.about-page .nav-links,
+.contact-page .nav-links {
+    flex: 2;
+    justify-content: center;
 }
 
 /* Estilos para el cuerpo */
@@ -166,6 +200,8 @@ p {
     width: 2px;
     background-color: rgba(255, 255, 255, 0.3);
     margin: 0 20px;
+    height: 40px;
+    align-self: center;
 }
 
 /* Sección del equipo */
@@ -205,6 +241,7 @@ p {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px;
 }
 
 /* Estilos del formulario de contacto */
@@ -259,6 +296,7 @@ p {
     transition: all 0.3s ease;
     width: 100%;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .btn-submit:hover {
@@ -275,6 +313,9 @@ p {
     font-size: 1.1rem;
     border-radius: 30px;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 #btnBookNow:hover {
@@ -333,8 +374,8 @@ p {
 
 /* Estilos para el contenedor de resultados flotante */
 #resultsContainer {
-    position: fixed; /* Cambiado de absolute a fixed */
-    top: 80px; /* Ajustado para que esté justo debajo de la barra de navegación */
+    position: fixed;
+    top: 80px;
     right: 50px;
     width: 400px;
     max-height: 70vh;
@@ -347,8 +388,8 @@ p {
     display: none; /* Oculto por defecto */
 }
 
-/* Mostrar resultados cuando hay contenido */
-#resultsContainer:not(:empty) {
+/* Mostrar resultados solo cuando tienen contenido y estamos en la página Home */
+.home-page #resultsContainer:not(:empty) {
     display: block;
 }
 
@@ -445,25 +486,61 @@ p {
 
 /* Responsive */
 @media (max-width: 992px) {
-    /* Ocultar la barra de búsqueda y botones en tablets */
-    #searchBar, #btnSearch, #btnReset {
-        display: none;
-    }
-    
-    /* Ajustar padding del nav */
     nav {
         padding: 15px 20px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-logo {
+        flex: 1;
+        order: 1;
+    }
+    
+    .nav-links {
+        flex: 2;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .nav-search {
+        flex: 1;
+        order: 2;
+        justify-content: flex-end;
+    }
+    
+    /* Ocultar barra de búsqueda en tablets/móviles */
+    #searchBar, #btnSearch, #btnReset {
+        display: none;
     }
 
     /* Ajustes responsive para resultados */
     #resultsContainer {
         right: 20px;
         width: 350px;
-        top: 70px; /* Ajuste para tablets */
+        top: 70px;
     }
 }
 
 @media (max-width: 768px) {
+    .nav-links {
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .nav-logo {
+        font-size: 1.3rem;
+    }
+    
+    .nav-logo i {
+        font-size: 1.5rem;
+    }
+    
     main {
         flex-direction: column;
         padding: 100px 20px 30px;
@@ -501,22 +578,21 @@ p {
     /* Ajustes responsive para resultados */
     #resultsContainer {
         position: fixed;
-        top: 60px; /* Ajuste para móviles */
+        top: 60px;
         right: 10px;
         left: 10px;
         width: auto;
         max-height: 60vh;
     }
-
 }
 
 @media (max-width: 480px) {
     /* Ajustar logo para móviles muy pequeños */
-    nav > div {
+    .nav-logo {
         font-size: 1.2rem;
     }
     
-    nav i {
+    .nav-logo i {
         font-size: 1.5rem;
     }
     
@@ -526,5 +602,16 @@ p {
     
     h2 {
         font-size: 1.8rem;
+    }
+    
+    /* Ajustar padding en móviles pequeños */
+    main {
+        padding: 90px 15px 25px;
+    }
+    
+    /* Ajustar tamaño de botones en móviles */
+    #btnBookNow, .btn-submit {
+        padding: 10px 20px;
+        font-size: 1rem;
     }
 }

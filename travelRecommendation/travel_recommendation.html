@@ -11,23 +11,28 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     </head>
-    <body>
+    <body class="home-page">
         <!-- Barra de navegación -->
         <nav>
-            <!-- Logo y nombre del sitio -->
-            <div>
+            <!-- Logo y nombre del sitio (izquierda) -->
+            <div class="nav-logo">
                 <i class="fas fa-plane-departure"></i>
                 <span>TravelBloom</span>
             </div>
             
-            <ul>
+            <!-- Enlaces de navegación (centro) -->
+            <ul class="nav-links">
                 <li><a href="./travel_recommendation.html" id="home">Home</a></li>
                 <li><a href="./about_us.html" id="aboutUs">About Us</a></li>
                 <li><a href="./contact_us.html" id="contactUs">Contact Us</a></li>
-                <li><input type="text" id="searchBar" placeholder="Enter a destination or keyword"></li>
-                <li><button id='btnSearch'>Search</button></li>
-                <li><button id='btnReset'>Clear</button></li>
             </ul>
+            
+            <!-- Barra de búsqueda (derecha) - Solo visible en Home -->
+            <div class="nav-search">
+                <input type="text" id="searchBar" placeholder="Enter a destination or keyword">
+                <button id='btnSearch'>Search</button>
+                <button id='btnReset'>Clear</button>
+            </div>
         </nav>
 
         <!-- Contenedor para resultados de búsqueda (flotante) -->
