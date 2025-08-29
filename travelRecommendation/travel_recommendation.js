@@ -3,6 +3,22 @@ const btnSearch = document.getElementById('btnSearch');
 const btnReset = document.getElementById('btnReset');
 const searchBar = document.getElementById('searchBar');
 let travelData = [];
+// Coloca esto al inicio de tu archivo JavaScript
+const cityTimeZones = {
+    "Australia": "Australia/Sydney",
+    "Japon": "Asia/Tokyo",
+    "Brazil": "America/Sao_Paulo",
+    "Sydney, Australia": "Australia/Sydney",
+    "Melbourne, Australia": 'Australia/Melbourne',
+    "Tokyo, Japan": "Asia/Tokyo",
+    "Kyoto, Japan": "Asia/Tokyo",
+    "Rio de Janeiro, Brazil": "America/Sao_Paulo",
+    "São Paulo, Brazil": "America/Sao_Paulo",
+    "Angkor Wat, Cambodia": "Asia/Phnom_Penh",
+    "Taj Mahal, India": "Asia/Kolkata",
+    "Bora Bora, French Polynesia": "Pacific/Tahiti",
+    "Copacabana Beach, Brazil": "America/Sao_Paulo"
+};
 
 /**
  * Función para encontrar coincidencias de viajes (COUNTRIES, TEMPLES or BEACHES)
@@ -125,6 +141,13 @@ function createResultCard(item) {
     const description = document.createElement('p');
     description.textContent = item.description;
     card.appendChild(description);
+
+    // Fecha y hora del destino
+    const fechaHs = document.createElement('p');
+    fechaHs.textContent = "Current time: " + getFechaHs(item.name);
+    card.appendChild(fechaHs);
+    console.log(fechaHs.textContent);
+    
     
     // Botón "Visit"
     const visitButton = document.createElement('button');
@@ -138,6 +161,27 @@ function createResultCard(item) {
     card.appendChild(visitButton);
     
     return card;
+}
+
+/**
+ * Función para obtener fecha y hora del destino
+ */
+function getFechaHs(cityName) {
+    const timeZone = cityTimeZones[cityName];
+    
+    if (!timeZone) {
+        return "Time not available";
+    }
+    
+    const now = new Date();
+    
+    return now.toLocaleTimeString('en-US', {
+        timeZone: timeZone,
+        hour12: true,
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit'
+    });
 }
 
 /**
