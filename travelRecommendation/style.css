@@ -374,23 +374,32 @@ p {
 
 /* Estilos para el contenedor de resultados flotante */
 #resultsContainer {
+    display: none; /* Oculto por defecto */
     position: fixed;
     top: 80px;
     right: 50px;
     width: 400px;
     max-height: 70vh;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     z-index: 99;
-    padding: 15px;
-    display: none; /* Oculto por defecto */
+    padding: 20px;
 }
 
-/* Mostrar resultados solo cuando tienen contenido y estamos en la página Home */
-.home-page #resultsContainer:not(:empty) {
+/* Mostrar solo cuando tiene contenido */
+#resultsContainer:not(:empty) {
     display: block;
+}
+
+/* Título de resultados */
+#resultsContainer h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    font-size: 1.2rem;
 }
 
 /* Estilos para las tarjetas de resultados */
@@ -416,16 +425,14 @@ p {
     font-size: 0.95rem;
 }
 
+/* Imágenes reales en lugar de gradientes */
 .result-image {
-    height: 150px;
-    background: linear-gradient(135deg, #3498db, #2c3e50);
+    height: 180px;
+    background-size: cover;
+    background-position: center;
     border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
     margin-bottom: 15px;
+    position: relative;
 }
 
 .visit-btn {
@@ -577,12 +584,14 @@ p {
 
     /* Ajustes responsive para resultados */
     #resultsContainer {
-        position: fixed;
-        top: 60px;
         right: 10px;
         left: 10px;
         width: auto;
         max-height: 60vh;
+    }
+    
+    .result-image {
+        height: 150px;
     }
 }
 
@@ -613,5 +622,14 @@ p {
     #btnBookNow, .btn-submit {
         padding: 10px 20px;
         font-size: 1rem;
+    }
+
+    #resultsContainer {
+        top: 70px;
+        padding: 15px;
+    }
+    
+    .result-image {
+        height: 120px;
     }
 }

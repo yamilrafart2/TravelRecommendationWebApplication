@@ -6,7 +6,7 @@ let travelData = [];
 // Coloca esto al inicio de tu archivo JavaScript
 const cityTimeZones = {
     "Australia": "Australia/Sydney",
-    "Japon": "Asia/Tokyo",
+    "Japan": "Asia/Tokyo",
     "Brazil": "America/Sao_Paulo",
     "Sydney, Australia": "Australia/Sydney",
     "Melbourne, Australia": 'Australia/Melbourne',
@@ -52,7 +52,10 @@ function searchRecommendations() {
             } else if (input === "country" || input === "countries") {
                
                 data.countries.forEach(country => {
-                    travelData.push(country);
+                    country.cities.forEach(city => {
+                        travelData.push(city);
+                    });
+                    // travelData.push(country);
                 });
 
             } else if (input === "temples" || input === "temple") {
@@ -131,10 +134,19 @@ function createResultCard(item) {
     name.textContent = item.name;
     card.appendChild(name);
     
-    // Imagen
+    // Imagen (usando URL real)
     const image = document.createElement('div');
     image.className = 'result-image';
-    image.textContent = item.name;
+    if (item.imageUrl && item.imageUrl !== 'enter_your_image_for_') {
+        image.style.backgroundImage = `url('${item.imageUrl}')`;
+        image.textContent = ''; // Limpiar texto si hay imagen
+    } else {
+        image.textContent = 'Image not available';
+        image.style.display = 'flex';
+        image.style.alignItems = 'center';
+        image.style.justifyContent = 'center';
+        image.style.background = 'linear-gradient(135deg, #3498db, #2c3e50)';
+    }
     card.appendChild(image);
     
     // Descripción
