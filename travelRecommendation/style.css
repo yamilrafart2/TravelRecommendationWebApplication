@@ -331,6 +331,118 @@ p {
     max-width: 600px;
 }
 
+/* Estilos para el contenedor de resultados flotante */
+#resultsContainer {
+    position: fixed; /* Cambiado de absolute a fixed */
+    top: 80px; /* Ajustado para que esté justo debajo de la barra de navegación */
+    right: 50px;
+    width: 400px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    padding: 15px;
+    display: none; /* Oculto por defecto */
+}
+
+/* Mostrar resultados cuando hay contenido */
+#resultsContainer:not(:empty) {
+    display: block;
+}
+
+/* Estilos para las tarjetas de resultados */
+.result-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #3498db;
+}
+
+.result-card h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.result-card p {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.result-image {
+    height: 150px;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.visit-btn {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.visit-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Mensajes de estado */
+.result-message {
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.result-error {
+    background: rgba(231, 76, 60, 0.2);
+    border: 1px solid #e74c3c;
+    color: #c0392b;
+}
+
+.result-info {
+    background: rgba(52, 152, 219, 0.2);
+    border: 1px solid #3498db;
+    color: #2980b9;
+}
+
+/* Scrollbar personalizado */
+#resultsContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+#resultsContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#resultsContainer::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 10px;
+}
+
+#resultsContainer::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     /* Ocultar la barra de búsqueda y botones en tablets */
@@ -341,6 +453,13 @@ p {
     /* Ajustar padding del nav */
     nav {
         padding: 15px 20px;
+    }
+
+    /* Ajustes responsive para resultados */
+    #resultsContainer {
+        right: 20px;
+        width: 350px;
+        top: 70px; /* Ajuste para tablets */
     }
 }
 
@@ -378,6 +497,17 @@ p {
         justify-content: center;
         gap: 25px;
     }
+
+    /* Ajustes responsive para resultados */
+    #resultsContainer {
+        position: fixed;
+        top: 60px; /* Ajuste para móviles */
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-height: 60vh;
+    }
+
 }
 
 @media (max-width: 480px) {
